@@ -1,0 +1,67 @@
+﻿<Window x:Class="DinaD.JuryOrModeratorRegister"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DinaD"
+        xmlns:conv="clr-namespace:DinaD.Converters"
+        mc:Ignorable="d"
+        Title="JuryOrModeratorRegister" Height="450" Width="800" MinHeight="450" MinWidth="800">
+    <Window.Resources>
+        <conv:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Content="Регистрация Жюри/Модератора" FontWeight="Bold" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Center"/>
+        <Separator Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" VerticalAlignment="Bottom" Background="Black" Height="3"/>
+        <Label Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Content="Id Number: "/>
+        <TextBox x:Name="IdNumberTextBox" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Height="30" IsReadOnly="True" TextAlignment="Center" FontWeight="Bold" Background="LightGray"/>
+        <Label Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right" Content="ФИО: "/>
+        <TextBox x:Name="FullNameTextBox" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Height="30"/>
+        <Label Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right" Content="Пол: "/>
+        <ComboBox x:Name="SexComboBox" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Height="30"/>
+        <Label Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right" Content="Роль: "/>
+        <ComboBox x:Name="RoleComboBox" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Height="30"/>
+        <Label Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Right" Content="Email: "/>
+        <TextBox x:Name="EmailTextBox" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Height="30"/>
+        <Label Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Right" Content="Телефон: "/>
+        <TextBox x:Name="PhoneNumberTextBox" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Height="30"/>
+        <Label Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Right" Content="Направление: "/>
+        <ComboBox x:Name="FieldComboBox" Grid.Row="7" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center" Width="150" Height="30" IsEditable="True"/>
+        <CheckBox x:Name="LinkToEventCheckBox" Grid.Row="7" Grid.Column="1" VerticalAlignment="Bottom" Margin="20, 0, 0, 0"/>
+        <Label Grid.Row="7" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Прикрепить к мероприятию" FontSize="10" Margin="0, 0, 20, -2"/>
+        <Label Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Right" Content="Мероприятие: "/>
+        <ComboBox x:Name="EventComboBox" Grid.Row="8" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Height="30"/>
+        <Label Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right" Content="Страна: "/>
+        <ComboBox x:Name="CountryComboBox" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Height="30"/>
+        <Label Grid.Row="5" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right" Content="Пароль: "/>
+        <PasswordBox x:Name="PasswordBox" Grid.Row="5" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Height="30" />
+        <TextBox x:Name="PasswordTextBox" Grid.Row="5" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Height="30" Visibility="Collapsed"/>
+        <Label Grid.Row="6" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right" Content="Повтор пароля: "/>
+        <PasswordBox x:Name="ReEnterPasswordBox" Grid.Row="6" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Height="30"/>
+        <TextBox x:Name="ReEnterPasswordTextBox" Grid.Row="6" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Height="30" Visibility="Collapsed"/>
+        <CheckBox x:Name="UnHidePasswordCheckBox" Grid.Row="7" Grid.Column="3" VerticalAlignment="Top" Margin="30, 5, 0, 0" Checked="UnHidePasswordCheckBox_Checked" Unchecked="UnHidePasswordCheckBox_Unchecked"/>
+        <Label Grid.Row="7" Grid.Column="3" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Видимый пароль" FontSize="11" Margin="0, 0, 55, 0"/>
+        <Label Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left" Content="Изображение:" FontSize="11" Margin="20,0,0,0"/>
+        <ComboBox x:Name="UserImagesComboBox" Grid.Column="2" Grid.Row="3" Width="80" Height="30" HorizontalAlignment="Right" Margin="5" SelectionChanged="UserImagesComboBox_SelectionChanged"/>
+        <Image x:Name="UserImage" Grid.Column="3" Grid.Row="2" Grid.RowSpan="3" Width="150" Height="140"/>
+        <Button Grid.Column="4" Content="Ок" x:Name="OkButton" Grid.Row="8" Click="OkButton_Click" Width="80" Height="35" Margin="5, 0, 0 ,0" HorizontalAlignment="Left"/>
+        <Button Grid.Column="4" Content="Отмена" Grid.Row="8" Click="CancelButton_Click" Width="80" Height="35" Margin="0, 0, 5 ,0" HorizontalAlignment="Right"/>
+    </Grid>
+</Window>

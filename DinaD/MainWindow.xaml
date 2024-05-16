@@ -1,0 +1,70 @@
+﻿<Window x:Class="DinaD.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clrnamespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:DinaD" xmlns:sys1="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="Главное окно" Height="450" Width="800" MinHeight="450" MinWidth="800">
+    <Window.Resources>
+        <sys1:String x:Key="NullImage">
+            pack://DinaD:,,,/Resources/EventsImages/1.jpeg
+        </sys1:String>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+        <Label Content="Мероприятия" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Center" ></Label>
+        <Button Grid.Column="3" Content="Авторизация" x:Name="ToAuthorizationButton" Grid.Row="1" Click="ToAuthorizationButton_Click"/>
+        <Label Grid.Column="0" Content="Фильтровать по направлению:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,5,0" x:Name="OrderByTypeTextBlock"  Grid.Row="1"></Label>
+        <ComboBox Grid.Column="1" HorizontalAlignment="Left"  Grid.Row="1" x:Name="DirectionComboBox" SelectionChanged="DirectionComboBox_SelectionChanged">
+        </ComboBox>
+        <Label Grid.Column="2" Content="Фильтровать по дате:" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,5,0" x:Name="OrderByDateTextBlock"  Grid.Row="1"></Label>
+        <CheckBox Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="100,0,0,0"  Grid.Row="1" x:Name="OrderByDateCheckBox" Checked="OrderByDateCheckBox_Checked" Unchecked="OrderByDateCheckBox_Unchecked"></CheckBox>
+        <ListView x:Name="EventsListView" Grid.Row="2" Grid.RowSpan="6" Grid.Column="0" Grid.ColumnSpan="4" Background="AliceBlue" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel>
+                    </WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                        <Border BorderThickness="1" BorderBrush="Gray" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Grid Width="240" Height="200" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Text="{Binding Name}" HorizontalAlignment="Center" FontSize="10" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center" x:Name="NameTextBlock"/>
+                            <Image Grid.Row="1" Source="{Binding Image, FallbackValue= {StaticResource NullImage}}" HorizontalAlignment="Center" x:Name="LogoImage"/>
+                            <TextBlock Grid.Row="2" Text="{Binding Direction.Name}" HorizontalAlignment="Center" FontSize="10" FontStyle="Oblique" x:Name="TypeTextBlock"/>
+                            <TextBlock Grid.Row="3" Text="{Binding Date}" HorizontalAlignment="Center" FontSize="10" FontStyle="Oblique" x:Name="DateTextBlock"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            
+        </ListView>
+    </Grid>
+</Window>

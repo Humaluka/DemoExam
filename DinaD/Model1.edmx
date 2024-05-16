@@ -1,0 +1,1024 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище DemoLastModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Action">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ActionWinner">
+          <Key>
+            <PropertyRef Name="ActionId" />
+            <PropertyRef Name="ParticipantId" />
+          </Key>
+          <Property Name="ActionId" Type="int" Nullable="false" />
+          <Property Name="ParticipantId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="BlockchainActionId" Type="int" />
+          <Property Name="Day" Type="int" Nullable="false" />
+          <Property Name="Time" Type="time" Precision="7" Nullable="false" />
+          <Property Name="ModeratorId" Type="int" />
+        </EntityType>
+        <EntityType Name="ActivityJury">
+          <Key>
+            <PropertyRef Name="ActivityId" />
+            <PropertyRef Name="JuryId" />
+          </Key>
+          <Property Name="ActivityId" Type="int" Nullable="false" />
+          <Property Name="JuryId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BlockchainAction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Days" Type="int" Nullable="false" />
+          <Property Name="CityId" Type="int" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Image" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="CountryCodeId" />
+          </Key>
+          <Property Name="CountryCodeId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="NameEng" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CountryCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Field">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Jury">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="SexId" Type="int" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" Nullable="false" />
+          <Property Name="CountryCode" Type="int" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="FieldId" Type="int" />
+          <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Image" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Moderator">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="SexId" Type="int" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" Nullable="false" />
+          <Property Name="CountryCode" Type="int" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="FieldId" Type="int" />
+          <Property Name="ActionId" Type="int" />
+          <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Image" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Organizer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" Nullable="false" />
+          <Property Name="CountryCode" Type="int" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Image" Type="varbinary(max)" />
+          <Property Name="SexId" Type="int" />
+        </EntityType>
+        <EntityType Name="Participant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" Nullable="false" />
+          <Property Name="CountryCode" Type="int" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Image" Type="varbinary(max)" />
+          <Property Name="SexId" Type="int" />
+        </EntityType>
+        <EntityType Name="Sex">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__ActionWin__Actio__4316F928">
+          <End Role="Action" Type="Self.Action" Multiplicity="1" />
+          <End Role="ActionWinner" Type="Self.ActionWinner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Action">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActionWinner">
+              <PropertyRef Name="ActionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ActionWin__Parti__440B1D61">
+          <End Role="Participant" Type="Self.Participant" Multiplicity="1" />
+          <End Role="ActionWinner" Type="Self.ActionWinner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participant">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActionWinner">
+              <PropertyRef Name="ParticipantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Activity__Blockc__46E78A0C">
+          <End Role="BlockchainAction" Type="Self.BlockchainAction" Multiplicity="0..1" />
+          <End Role="Activity" Type="Self.Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlockchainAction">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Activity">
+              <PropertyRef Name="BlockchainActionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Activity__Modera__47DBAE45">
+          <End Role="Moderator" Type="Self.Moderator" Multiplicity="0..1" />
+          <End Role="Activity" Type="Self.Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Moderator">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Activity">
+              <PropertyRef Name="ModeratorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ActivityJ__Activ__4AB81AF0">
+          <End Role="Activity" Type="Self.Activity" Multiplicity="1" />
+          <End Role="ActivityJury" Type="Self.ActivityJury" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityJury">
+              <PropertyRef Name="ActivityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ActivityJ__JuryI__4BAC3F29">
+          <End Role="Jury" Type="Self.Jury" Multiplicity="1" />
+          <End Role="ActivityJury" Type="Self.ActivityJury" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jury">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityJury">
+              <PropertyRef Name="JuryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Blockchai__CityI__403A8C7D">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="BlockchainAction" Type="Self.BlockchainAction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BlockchainAction">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Jury__CountryCod__34C8D9D1">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="Jury" Type="Self.Jury" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryCodeId" />
+            </Principal>
+            <Dependent Role="Jury">
+              <PropertyRef Name="CountryCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Jury__FieldId__35BCFE0A">
+          <End Role="Field" Type="Self.Field" Multiplicity="0..1" />
+          <End Role="Jury" Type="Self.Jury" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Field">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Jury">
+              <PropertyRef Name="FieldId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Jury__SexId__33D4B598">
+          <End Role="Sex" Type="Self.Sex" Multiplicity="0..1" />
+          <End Role="Jury" Type="Self.Jury" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sex">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Jury">
+              <PropertyRef Name="SexId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Moderator__Actio__30F848ED">
+          <End Role="Action" Type="Self.Action" Multiplicity="0..1" />
+          <End Role="Moderator" Type="Self.Moderator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Action">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Moderator">
+              <PropertyRef Name="ActionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Moderator__Count__2F10007B">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="Moderator" Type="Self.Moderator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryCodeId" />
+            </Principal>
+            <Dependent Role="Moderator">
+              <PropertyRef Name="CountryCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Moderator__Field__300424B4">
+          <End Role="Field" Type="Self.Field" Multiplicity="0..1" />
+          <End Role="Moderator" Type="Self.Moderator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Field">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Moderator">
+              <PropertyRef Name="FieldId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Moderator__SexId__2E1BDC42">
+          <End Role="Sex" Type="Self.Sex" Multiplicity="0..1" />
+          <End Role="Moderator" Type="Self.Moderator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sex">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Moderator">
+              <PropertyRef Name="SexId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Organizer__Count__38996AB5">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="Organizer" Type="Self.Organizer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryCodeId" />
+            </Principal>
+            <Dependent Role="Organizer">
+              <PropertyRef Name="CountryCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Organizer__SexId__398D8EEE">
+          <End Role="Sex" Type="Self.Sex" Multiplicity="0..1" />
+          <End Role="Organizer" Type="Self.Organizer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sex">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Organizer">
+              <PropertyRef Name="SexId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Participa__Count__3C69FB99">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="Participant" Type="Self.Participant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryCodeId" />
+            </Principal>
+            <Dependent Role="Participant">
+              <PropertyRef Name="CountryCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Participa__SexId__3D5E1FD2">
+          <End Role="Sex" Type="Self.Sex" Multiplicity="0..1" />
+          <End Role="Participant" Type="Self.Participant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sex">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Participant">
+              <PropertyRef Name="SexId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище DemoLastModelContainer">
+          <EntitySet Name="Action" EntityType="Self.Action" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ActionWinner" EntityType="Self.ActionWinner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Activity" EntityType="Self.Activity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ActivityJury" EntityType="Self.ActivityJury" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BlockchainAction" EntityType="Self.BlockchainAction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Field" EntityType="Self.Field" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Jury" EntityType="Self.Jury" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Moderator" EntityType="Self.Moderator" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Organizer" EntityType="Self.Organizer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Participant" EntityType="Self.Participant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sex" EntityType="Self.Sex" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ActionWin__Actio__4316F928" Association="Self.FK__ActionWin__Actio__4316F928">
+            <End Role="Action" EntitySet="Action" />
+            <End Role="ActionWinner" EntitySet="ActionWinner" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ActionWin__Parti__440B1D61" Association="Self.FK__ActionWin__Parti__440B1D61">
+            <End Role="Participant" EntitySet="Participant" />
+            <End Role="ActionWinner" EntitySet="ActionWinner" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Activity__Blockc__46E78A0C" Association="Self.FK__Activity__Blockc__46E78A0C">
+            <End Role="BlockchainAction" EntitySet="BlockchainAction" />
+            <End Role="Activity" EntitySet="Activity" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Activity__Modera__47DBAE45" Association="Self.FK__Activity__Modera__47DBAE45">
+            <End Role="Moderator" EntitySet="Moderator" />
+            <End Role="Activity" EntitySet="Activity" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ActivityJ__Activ__4AB81AF0" Association="Self.FK__ActivityJ__Activ__4AB81AF0">
+            <End Role="Activity" EntitySet="Activity" />
+            <End Role="ActivityJury" EntitySet="ActivityJury" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ActivityJ__JuryI__4BAC3F29" Association="Self.FK__ActivityJ__JuryI__4BAC3F29">
+            <End Role="Jury" EntitySet="Jury" />
+            <End Role="ActivityJury" EntitySet="ActivityJury" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Blockchai__CityI__403A8C7D" Association="Self.FK__Blockchai__CityI__403A8C7D">
+            <End Role="City" EntitySet="City" />
+            <End Role="BlockchainAction" EntitySet="BlockchainAction" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Jury__CountryCod__34C8D9D1" Association="Self.FK__Jury__CountryCod__34C8D9D1">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Jury" EntitySet="Jury" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Jury__FieldId__35BCFE0A" Association="Self.FK__Jury__FieldId__35BCFE0A">
+            <End Role="Field" EntitySet="Field" />
+            <End Role="Jury" EntitySet="Jury" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Jury__SexId__33D4B598" Association="Self.FK__Jury__SexId__33D4B598">
+            <End Role="Sex" EntitySet="Sex" />
+            <End Role="Jury" EntitySet="Jury" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Moderator__Actio__30F848ED" Association="Self.FK__Moderator__Actio__30F848ED">
+            <End Role="Action" EntitySet="Action" />
+            <End Role="Moderator" EntitySet="Moderator" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Moderator__Count__2F10007B" Association="Self.FK__Moderator__Count__2F10007B">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Moderator" EntitySet="Moderator" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Moderator__Field__300424B4" Association="Self.FK__Moderator__Field__300424B4">
+            <End Role="Field" EntitySet="Field" />
+            <End Role="Moderator" EntitySet="Moderator" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Moderator__SexId__2E1BDC42" Association="Self.FK__Moderator__SexId__2E1BDC42">
+            <End Role="Sex" EntitySet="Sex" />
+            <End Role="Moderator" EntitySet="Moderator" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Organizer__Count__38996AB5" Association="Self.FK__Organizer__Count__38996AB5">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Organizer" EntitySet="Organizer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Organizer__SexId__398D8EEE" Association="Self.FK__Organizer__SexId__398D8EEE">
+            <End Role="Sex" EntitySet="Sex" />
+            <End Role="Organizer" EntitySet="Organizer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Participa__Count__3C69FB99" Association="Self.FK__Participa__Count__3C69FB99">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Participant" EntitySet="Participant" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Participa__SexId__3D5E1FD2" Association="Self.FK__Participa__SexId__3D5E1FD2">
+            <End Role="Sex" EntitySet="Sex" />
+            <End Role="Participant" EntitySet="Participant" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DemoLastModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Action">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Moderator" Relationship="Self.FK__Moderator__Actio__30F848ED" FromRole="Action" ToRole="Moderator" />
+          <NavigationProperty Name="Participant" Relationship="Self.ActionWinner" FromRole="Action" ToRole="Participant" />
+        </EntityType>
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BlockchainActionId" Type="Int32" />
+          <Property Name="Day" Type="Int32" Nullable="false" />
+          <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="ModeratorId" Type="Int32" />
+          <NavigationProperty Name="BlockchainAction" Relationship="Self.FK__Activity__Blockc__46E78A0C" FromRole="Activity" ToRole="BlockchainAction" />
+          <NavigationProperty Name="Moderator" Relationship="Self.FK__Activity__Modera__47DBAE45" FromRole="Activity" ToRole="Moderator" />
+          <NavigationProperty Name="Jury" Relationship="Self.ActivityJury" FromRole="Activity" ToRole="Jury" />
+        </EntityType>
+        <EntityType Name="BlockchainAction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Days" Type="Int32" Nullable="false" />
+          <Property Name="CityId" Type="Int32" />
+          <NavigationProperty Name="Activity" Relationship="Self.FK__Activity__Blockc__46E78A0C" FromRole="BlockchainAction" ToRole="Activity" />
+          <NavigationProperty Name="City" Relationship="Self.FK__Blockchai__CityI__403A8C7D" FromRole="BlockchainAction" ToRole="City" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="BlockchainAction" Relationship="Self.FK__Blockchai__CityI__403A8C7D" FromRole="City" ToRole="BlockchainAction" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="CountryCodeId" />
+          </Key>
+          <Property Name="CountryCodeId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NameEng" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CountryCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Jury" Relationship="Self.FK__Jury__CountryCod__34C8D9D1" FromRole="Country" ToRole="Jury" />
+          <NavigationProperty Name="Moderator" Relationship="Self.FK__Moderator__Count__2F10007B" FromRole="Country" ToRole="Moderator" />
+          <NavigationProperty Name="Organizer" Relationship="Self.FK__Organizer__Count__38996AB5" FromRole="Country" ToRole="Organizer" />
+          <NavigationProperty Name="Participant" Relationship="Self.FK__Participa__Count__3C69FB99" FromRole="Country" ToRole="Participant" />
+        </EntityType>
+        <EntityType Name="Field">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Jury" Relationship="Self.FK__Jury__FieldId__35BCFE0A" FromRole="Field" ToRole="Jury" />
+          <NavigationProperty Name="Moderator" Relationship="Self.FK__Moderator__Field__300424B4" FromRole="Field" ToRole="Moderator" />
+        </EntityType>
+        <EntityType Name="Jury">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SexId" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CountryCode" Type="Int32" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FieldId" Type="Int32" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Country" Relationship="Self.FK__Jury__CountryCod__34C8D9D1" FromRole="Jury" ToRole="Country" />
+          <NavigationProperty Name="Field" Relationship="Self.FK__Jury__FieldId__35BCFE0A" FromRole="Jury" ToRole="Field" />
+          <NavigationProperty Name="Sex" Relationship="Self.FK__Jury__SexId__33D4B598" FromRole="Jury" ToRole="Sex" />
+          <NavigationProperty Name="Activity" Relationship="Self.ActivityJury" FromRole="Jury" ToRole="Activity" />
+        </EntityType>
+        <EntityType Name="Moderator">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SexId" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CountryCode" Type="Int32" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FieldId" Type="Int32" />
+          <Property Name="ActionId" Type="Int32" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Action" Relationship="Self.FK__Moderator__Actio__30F848ED" FromRole="Moderator" ToRole="Action" />
+          <NavigationProperty Name="Activity" Relationship="Self.FK__Activity__Modera__47DBAE45" FromRole="Moderator" ToRole="Activity" />
+          <NavigationProperty Name="Country" Relationship="Self.FK__Moderator__Count__2F10007B" FromRole="Moderator" ToRole="Country" />
+          <NavigationProperty Name="Field" Relationship="Self.FK__Moderator__Field__300424B4" FromRole="Moderator" ToRole="Field" />
+          <NavigationProperty Name="Sex" Relationship="Self.FK__Moderator__SexId__2E1BDC42" FromRole="Moderator" ToRole="Sex" />
+        </EntityType>
+        <EntityType Name="Organizer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CountryCode" Type="Int32" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="SexId" Type="Int32" />
+          <NavigationProperty Name="Country" Relationship="Self.FK__Organizer__Count__38996AB5" FromRole="Organizer" ToRole="Country" />
+          <NavigationProperty Name="Sex" Relationship="Self.FK__Organizer__SexId__398D8EEE" FromRole="Organizer" ToRole="Sex" />
+        </EntityType>
+        <EntityType Name="Participant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CountryCode" Type="Int32" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="SexId" Type="Int32" />
+          <NavigationProperty Name="Country" Relationship="Self.FK__Participa__Count__3C69FB99" FromRole="Participant" ToRole="Country" />
+          <NavigationProperty Name="Sex" Relationship="Self.FK__Participa__SexId__3D5E1FD2" FromRole="Participant" ToRole="Sex" />
+          <NavigationProperty Name="Action" Relationship="Self.ActionWinner" FromRole="Participant" ToRole="Action" />
+        </EntityType>
+        <EntityType Name="Sex">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Jury" Relationship="Self.FK__Jury__SexId__33D4B598" FromRole="Sex" ToRole="Jury" />
+          <NavigationProperty Name="Moderator" Relationship="Self.FK__Moderator__SexId__2E1BDC42" FromRole="Sex" ToRole="Moderator" />
+          <NavigationProperty Name="Organizer" Relationship="Self.FK__Organizer__SexId__398D8EEE" FromRole="Sex" ToRole="Organizer" />
+          <NavigationProperty Name="Participant" Relationship="Self.FK__Participa__SexId__3D5E1FD2" FromRole="Sex" ToRole="Participant" />
+        </EntityType>
+        <Association Name="FK__Moderator__Actio__30F848ED">
+          <End Role="Action" Type="Self.Action" Multiplicity="0..1" />
+          <End Role="Moderator" Type="Self.Moderator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Action">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Moderator">
+              <PropertyRef Name="ActionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Activity__Blockc__46E78A0C">
+          <End Role="BlockchainAction" Type="Self.BlockchainAction" Multiplicity="0..1" />
+          <End Role="Activity" Type="Self.Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlockchainAction">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Activity">
+              <PropertyRef Name="BlockchainActionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Activity__Modera__47DBAE45">
+          <End Role="Moderator" Type="Self.Moderator" Multiplicity="0..1" />
+          <End Role="Activity" Type="Self.Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Moderator">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Activity">
+              <PropertyRef Name="ModeratorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Blockchai__CityI__403A8C7D">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="BlockchainAction" Type="Self.BlockchainAction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BlockchainAction">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Jury__CountryCod__34C8D9D1">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="Jury" Type="Self.Jury" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryCodeId" />
+            </Principal>
+            <Dependent Role="Jury">
+              <PropertyRef Name="CountryCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Moderator__Count__2F10007B">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="Moderator" Type="Self.Moderator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryCodeId" />
+            </Principal>
+            <Dependent Role="Moderator">
+              <PropertyRef Name="CountryCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Organizer__Count__38996AB5">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="Organizer" Type="Self.Organizer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryCodeId" />
+            </Principal>
+            <Dependent Role="Organizer">
+              <PropertyRef Name="CountryCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Participa__Count__3C69FB99">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="Participant" Type="Self.Participant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryCodeId" />
+            </Principal>
+            <Dependent Role="Participant">
+              <PropertyRef Name="CountryCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Jury__FieldId__35BCFE0A">
+          <End Role="Field" Type="Self.Field" Multiplicity="0..1" />
+          <End Role="Jury" Type="Self.Jury" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Field">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Jury">
+              <PropertyRef Name="FieldId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Moderator__Field__300424B4">
+          <End Role="Field" Type="Self.Field" Multiplicity="0..1" />
+          <End Role="Moderator" Type="Self.Moderator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Field">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Moderator">
+              <PropertyRef Name="FieldId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Jury__SexId__33D4B598">
+          <End Role="Sex" Type="Self.Sex" Multiplicity="0..1" />
+          <End Role="Jury" Type="Self.Jury" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sex">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Jury">
+              <PropertyRef Name="SexId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Moderator__SexId__2E1BDC42">
+          <End Role="Sex" Type="Self.Sex" Multiplicity="0..1" />
+          <End Role="Moderator" Type="Self.Moderator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sex">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Moderator">
+              <PropertyRef Name="SexId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Organizer__SexId__398D8EEE">
+          <End Role="Sex" Type="Self.Sex" Multiplicity="0..1" />
+          <End Role="Organizer" Type="Self.Organizer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sex">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Organizer">
+              <PropertyRef Name="SexId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Participa__SexId__3D5E1FD2">
+          <End Role="Sex" Type="Self.Sex" Multiplicity="0..1" />
+          <End Role="Participant" Type="Self.Participant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sex">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Participant">
+              <PropertyRef Name="SexId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ActionWinner">
+          <End Role="Action" Type="Self.Action" Multiplicity="*" />
+          <End Role="Participant" Type="Self.Participant" Multiplicity="*" />
+        </Association>
+        <Association Name="ActivityJury">
+          <End Role="Activity" Type="Self.Activity" Multiplicity="*" />
+          <End Role="Jury" Type="Self.Jury" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="DemoLastEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Action" EntityType="Self.Action" />
+          <EntitySet Name="Activity" EntityType="Self.Activity" />
+          <EntitySet Name="BlockchainAction" EntityType="Self.BlockchainAction" />
+          <EntitySet Name="City" EntityType="Self.City" />
+          <EntitySet Name="Country" EntityType="Self.Country" />
+          <EntitySet Name="Field" EntityType="Self.Field" />
+          <EntitySet Name="Jury" EntityType="Self.Jury" />
+          <EntitySet Name="Moderator" EntityType="Self.Moderator" />
+          <EntitySet Name="Organizer" EntityType="Self.Organizer" />
+          <EntitySet Name="Participant" EntityType="Self.Participant" />
+          <EntitySet Name="Sex" EntityType="Self.Sex" />
+          <AssociationSet Name="FK__Moderator__Actio__30F848ED" Association="Self.FK__Moderator__Actio__30F848ED">
+            <End Role="Action" EntitySet="Action" />
+            <End Role="Moderator" EntitySet="Moderator" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Activity__Blockc__46E78A0C" Association="Self.FK__Activity__Blockc__46E78A0C">
+            <End Role="BlockchainAction" EntitySet="BlockchainAction" />
+            <End Role="Activity" EntitySet="Activity" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Activity__Modera__47DBAE45" Association="Self.FK__Activity__Modera__47DBAE45">
+            <End Role="Moderator" EntitySet="Moderator" />
+            <End Role="Activity" EntitySet="Activity" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Blockchai__CityI__403A8C7D" Association="Self.FK__Blockchai__CityI__403A8C7D">
+            <End Role="City" EntitySet="City" />
+            <End Role="BlockchainAction" EntitySet="BlockchainAction" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Jury__CountryCod__34C8D9D1" Association="Self.FK__Jury__CountryCod__34C8D9D1">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Jury" EntitySet="Jury" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Moderator__Count__2F10007B" Association="Self.FK__Moderator__Count__2F10007B">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Moderator" EntitySet="Moderator" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Organizer__Count__38996AB5" Association="Self.FK__Organizer__Count__38996AB5">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Organizer" EntitySet="Organizer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Participa__Count__3C69FB99" Association="Self.FK__Participa__Count__3C69FB99">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Participant" EntitySet="Participant" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Jury__FieldId__35BCFE0A" Association="Self.FK__Jury__FieldId__35BCFE0A">
+            <End Role="Field" EntitySet="Field" />
+            <End Role="Jury" EntitySet="Jury" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Moderator__Field__300424B4" Association="Self.FK__Moderator__Field__300424B4">
+            <End Role="Field" EntitySet="Field" />
+            <End Role="Moderator" EntitySet="Moderator" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Jury__SexId__33D4B598" Association="Self.FK__Jury__SexId__33D4B598">
+            <End Role="Sex" EntitySet="Sex" />
+            <End Role="Jury" EntitySet="Jury" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Moderator__SexId__2E1BDC42" Association="Self.FK__Moderator__SexId__2E1BDC42">
+            <End Role="Sex" EntitySet="Sex" />
+            <End Role="Moderator" EntitySet="Moderator" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Organizer__SexId__398D8EEE" Association="Self.FK__Organizer__SexId__398D8EEE">
+            <End Role="Sex" EntitySet="Sex" />
+            <End Role="Organizer" EntitySet="Organizer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Participa__SexId__3D5E1FD2" Association="Self.FK__Participa__SexId__3D5E1FD2">
+            <End Role="Sex" EntitySet="Sex" />
+            <End Role="Participant" EntitySet="Participant" />
+          </AssociationSet>
+          <AssociationSet Name="ActionWinner" Association="Self.ActionWinner">
+            <End Role="Action" EntitySet="Action" />
+            <End Role="Participant" EntitySet="Participant" />
+          </AssociationSet>
+          <AssociationSet Name="ActivityJury" Association="Self.ActivityJury">
+            <End Role="Activity" EntitySet="Activity" />
+            <End Role="Jury" EntitySet="Jury" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище DemoLastModelContainer" CdmEntityContainer="DemoLastEntities">
+          <EntitySetMapping Name="Action">
+            <EntityTypeMapping TypeName="DemoLastModel.Action">
+              <MappingFragment StoreEntitySet="Action">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Activity">
+            <EntityTypeMapping TypeName="DemoLastModel.Activity">
+              <MappingFragment StoreEntitySet="Activity">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="BlockchainActionId" ColumnName="BlockchainActionId" />
+                <ScalarProperty Name="Day" ColumnName="Day" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="ModeratorId" ColumnName="ModeratorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlockchainAction">
+            <EntityTypeMapping TypeName="DemoLastModel.BlockchainAction">
+              <MappingFragment StoreEntitySet="BlockchainAction">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Days" ColumnName="Days" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="City">
+            <EntityTypeMapping TypeName="DemoLastModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Country">
+            <EntityTypeMapping TypeName="DemoLastModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="CountryCodeId" ColumnName="CountryCodeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NameEng" ColumnName="NameEng" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Field">
+            <EntityTypeMapping TypeName="DemoLastModel.Field">
+              <MappingFragment StoreEntitySet="Field">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Jury">
+            <EntityTypeMapping TypeName="DemoLastModel.Jury">
+              <MappingFragment StoreEntitySet="Jury">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="SexId" ColumnName="SexId" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="FieldId" ColumnName="FieldId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Moderator">
+            <EntityTypeMapping TypeName="DemoLastModel.Moderator">
+              <MappingFragment StoreEntitySet="Moderator">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="SexId" ColumnName="SexId" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="FieldId" ColumnName="FieldId" />
+                <ScalarProperty Name="ActionId" ColumnName="ActionId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Organizer">
+            <EntityTypeMapping TypeName="DemoLastModel.Organizer">
+              <MappingFragment StoreEntitySet="Organizer">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="SexId" ColumnName="SexId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Participant">
+            <EntityTypeMapping TypeName="DemoLastModel.Participant">
+              <MappingFragment StoreEntitySet="Participant">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="SexId" ColumnName="SexId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sex">
+            <EntityTypeMapping TypeName="DemoLastModel.Sex">
+              <MappingFragment StoreEntitySet="Sex">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="ActionWinner" TypeName="DemoLastModel.ActionWinner" StoreEntitySet="ActionWinner">
+            <EndProperty Name="Action">
+              <ScalarProperty Name="Id" ColumnName="ActionId" />
+            </EndProperty>
+            <EndProperty Name="Participant">
+              <ScalarProperty Name="Id" ColumnName="ParticipantId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="ActivityJury" TypeName="DemoLastModel.ActivityJury" StoreEntitySet="ActivityJury">
+            <EndProperty Name="Activity">
+              <ScalarProperty Name="Id" ColumnName="ActivityId" />
+            </EndProperty>
+            <EndProperty Name="Jury">
+              <ScalarProperty Name="Id" ColumnName="JuryId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

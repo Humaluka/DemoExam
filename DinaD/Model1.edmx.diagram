@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="55a699fbc5384820b0575327079436a6" Name="Diagram1">
+        <EntityTypeShape EntityType="DemoLastModel.Action" Width="1.5" PointX="3.75" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoLastModel.Activity" Width="1.5" PointX="8.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoLastModel.BlockchainAction" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoLastModel.City" Width="1.5" PointX="3.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoLastModel.Country" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoLastModel.Field" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoLastModel.Jury" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoLastModel.Moderator" Width="1.5" PointX="6" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoLastModel.Organizer" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoLastModel.Participant" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoLastModel.Sex" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <AssociationConnector Association="DemoLastModel.FK__Moderator__Actio__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="DemoLastModel.FK__Activity__Blockc__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="DemoLastModel.FK__Activity__Modera__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="DemoLastModel.FK__Blockchai__CityI__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="DemoLastModel.FK__Jury__CountryCod__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="DemoLastModel.FK__Moderator__Count__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="DemoLastModel.FK__Organizer__Count__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="DemoLastModel.FK__Participa__Count__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="DemoLastModel.FK__Jury__FieldId__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="DemoLastModel.FK__Moderator__Field__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="DemoLastModel.FK__Jury__SexId__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="DemoLastModel.FK__Moderator__SexId__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="DemoLastModel.FK__Organizer__SexId__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="DemoLastModel.FK__Participa__SexId__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="DemoLastModel.ActionWinner" ManuallyRouted="false" />
+        <AssociationConnector Association="DemoLastModel.ActivityJury" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
