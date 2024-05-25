@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DinaD", "DinaD\DinaD.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{7E294FA4-89D0-4848-9197-F8717E38A82D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Help", "Help", "{0A2139EB-C819-4601-B435-640EAECE3858}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\DinaDinarBD.bak = ..\..\DinaDinarBD.bak
+		..\..\PractikaMay.docx = ..\..\PractikaMay.docx
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
