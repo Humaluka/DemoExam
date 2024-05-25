@@ -6,7 +6,8 @@
         xmlns:sys="clrnamespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:DinaD" xmlns:sys1="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="Главное окно" Height="450" Width="800" MinHeight="450" MinWidth="800">
+        Title="Главное окно" Height="450" Width="800" MinHeight="450" MinWidth="800"
+        Background="Wheat">
     <Window.Resources>
         <sys1:String x:Key="NullImage">
             pack://DinaD:,,,/Resources/EventsImages/1.jpeg
@@ -31,7 +32,7 @@
             <ColumnDefinition></ColumnDefinition>
 
         </Grid.ColumnDefinitions>
-        <Label Content="Мероприятия" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Center" ></Label>
+        <Label Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" Width="800" HorizontalContentAlignment="Center" BorderBrush="LightGray" BorderThickness="2" Background="White" FontFamily="SegoeUI" Content="Мероприятия" HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Center" ></Label>
         <Button Grid.Column="3" Content="Авторизация" x:Name="ToAuthorizationButton" Grid.Row="1" Click="ToAuthorizationButton_Click"/>
         <Label Grid.Column="0" Content="Фильтровать по направлению:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,5,0" x:Name="OrderByTypeTextBlock"  Grid.Row="1"></Label>
         <ComboBox Grid.Column="1" HorizontalAlignment="Left"  Grid.Row="1" x:Name="DirectionComboBox" SelectionChanged="DirectionComboBox_SelectionChanged">

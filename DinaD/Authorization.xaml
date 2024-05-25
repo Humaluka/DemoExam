@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DinaD"
         mc:Ignorable="d"
-        Title="Авторизация" Height="450" Width="800" MinHeight="450" MinWidth="800">
+        Title="Авторизация" Height="450" Width="800" MinHeight="450" MinWidth="800"
+        Background="Wheat">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -20,12 +21,12 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Label Grid.Column="1"  Content="Авторизация" x:Name="AuthorizationLabel" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
-        <Label Content="Введите IdNumber:" x:Name="IdNumberLabel" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom"></Label>
-        <TextBox x:Name="IdNumberTextBlock" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Width="150" Height="30"></TextBox>
-        <Label Content="Введите Password:" x:Name="PasswordLabel" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Bottom"></Label>
-        <PasswordBox x:Name="PasswordTextBlock" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top" Width="150" Height="30" PasswordChar="*"></PasswordBox>
-        <Button Grid.Column="1" Content="Вход" x:Name="ToAuthorizationButton" Grid.Row="4" Click="ToAuthorizationButton_Click"/>
+        <Label Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Width="800" HorizontalContentAlignment="Center" BorderBrush="LightGray" BorderThickness="2" Background="White" FontFamily="SegoeUI" Content="Авторизация" x:Name="AuthorizationLabel" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+        <Label Grid.Column="1" Grid.Row="1" FontFamily="SegoeUI" FontSize="20" VerticalAlignment="Top" Content="IdNumber:" x:Name="IdNumberLabel" HorizontalAlignment="Center"></Label>
+        <TextBox Grid.Column="1" Grid.Row="1" x:Name="IdNumberTextBlock" Width="250" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="30"></TextBox>
+        <Label Grid.Column="1" Grid.Row="2" FontFamily="SegoeUI" FontSize="20" Content="Password:" x:Name="PasswordLabel" HorizontalAlignment="Center" VerticalAlignment="Top"></Label>
+        <PasswordBox Grid.Column="1" Grid.Row="2" x:Name="PasswordTextBlock" Width="250"  HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="30" PasswordChar="*"></PasswordBox>
+        <Button Grid.Column="1" Grid.Row="3" FontSize="25" BorderBrush="LightGray" BorderThickness="2" Background="White" FontFamily="SegoeUI" Content="Вход" x:Name="ToAuthorizationButton"  Click="ToAuthorizationButton_Click"/>
         
     </Grid>
 </Window>

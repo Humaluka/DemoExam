@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DinaD"
         mc:Ignorable="d"
-        Title="Organizer" Height="450" Width="800" MinHeight="450" MinWidth="800">
+        Title="Organizer" Height="450" Width="800" MinHeight="450" MinWidth="800"
+        Background="Wheat">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -23,13 +24,13 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Label Content="Окно Организатора" FontWeight="Bold" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Center"></Label>
+        <Label Content="Окно Организатора" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" Width="800" FontSize="25" HorizontalContentAlignment="Center" BorderBrush="LightGray" BorderThickness="2" Background="White" FontFamily="SegoeUI"></Label>
         <Separator Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" VerticalAlignment="Bottom" Background="Black" Height="3" />
         <TextBlock Grid.Column="1" Grid.ColumnSpan="2" TextWrapping="Wrap" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="GreetingsLabel" Grid.Row="1"/>
-        <Button Grid.Column="1" Grid.ColumnSpan="2" Content="Мероприятия" x:Name="EventsButton" Grid.Row="2" Click="EventsButton_Click"/>
-        <Button Grid.Column="1" Grid.ColumnSpan="2" Content="Участники" x:Name="ParticipantsButton" Grid.Row="3" Click="ParticipantsButton_Click"/>
-        <Button Grid.Column="1" Grid.ColumnSpan="2" Content="Жюри" x:Name="JuryButton" Grid.Row="4" Click="JuryButton_Click"/>
+        <Button Width="300" FontSize="25" BorderBrush="LightGray" BorderThickness="2" Background="White" FontFamily="SegoeUI" Grid.Column="1" Grid.ColumnSpan="2" Content="Мероприятия" x:Name="EventsButton" Grid.Row="2" Click="EventsButton_Click"/>
+        <Button Width="300" FontSize="25" BorderBrush="LightGray" BorderThickness="2" Background="White" FontFamily="SegoeUI" Grid.Column="1" Grid.ColumnSpan="2" Content="Участники" x:Name="ParticipantsButton" Grid.Row="3" Click="ParticipantsButton_Click"/>
+        <Button Width="300" FontSize="25" BorderBrush="LightGray" BorderThickness="2" Background="White" FontFamily="SegoeUI" Grid.Column="1" Grid.ColumnSpan="2" Content="Жюри" x:Name="JuryButton" Grid.Row="4" Click="JuryButton_Click"/>
         <Image Grid.Column="0" Grid.Row="1" Grid.RowSpan="4" Source="{Binding ImgPath}" Margin="0, 25, 0, 0" x:Name="PersonsImage"/>
-        <Button Grid.Column="0" Content="Мой профиль" x:Name="ProfileButton" Grid.Row="6" Click="ProfileButton_Click"/>
+        <Button  FontSize="15" BorderBrush="LightGray" BorderThickness="2" Background="White" FontFamily="SegoeUI" Grid.Column="2" Content="Мой профиль" x:Name="ProfileButton" Grid.Row="6" Click="ProfileButton_Click"/>
     </Grid>
 </Window>
